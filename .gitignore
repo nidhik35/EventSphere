@@ -1,0 +1,154 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# EventSphere .gitignore
+# Prevents sensitive data, dependencies, and build artifacts from being committed
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Environment & Secrets (CRITICAL - Never commit these!)
+# ─────────────────────────────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+.env.test
+*.pem
+*.key
+.aws/
+.ssh/
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Node.js Dependencies & Package Manager
+# ─────────────────────────────────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json.bak
+pnpm-lock.yaml
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Docker & Containers
+# ─────────────────────────────────────────────────────────────────────────────
+.dockerignore
+Dockerfile.dev
+docker-compose.override.yml
+.docker/
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Build Outputs & Artifacts
+# ─────────────────────────────────────────────────────────────────────────────
+dist/
+build/
+out/
+*.bundle.js
+*.min.js
+.next/
+.nuxt/
+*.swp
+*.swo
+
+# ─────────────────────────────────────────────────────────────────────────────
+# IDE & Editor Configuration
+# ─────────────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.sublime-project
+.sublime-workspace
+.DS_Store
+Thumbs.db
+.editor
+.editorconfig
+
+# ─────────────────────────────────────────────────────────────────────────────
+# OS-Specific Files
+# ─────────────────────────────────────────────────────────────────────────────
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.directory
+.Trash-*
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Logs & Temporary Files
+# ─────────────────────────────────────────────────────────────────────────────
+logs/
+*.log
+*.logs
+tmp/
+temp/
+*.tmp
+.cache/
+.vuepress/dist/
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Database & Data Files
+# ─────────────────────────────────────────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+*.mongo
+data/
+mongodb_data/
+dumps/
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Testing & Coverage
+# ─────────────────────────────────────────────────────────────────────────────
+coverage/
+.nyc_output/
+.jest_cache/
+__snapshots__/
+
+# ─────────────────────────────────────────────────────────────────────────────
+# System & Configuration
+# ─────────────────────────────────────────────────────────────────────────────
+.git/
+.gitmodules
+.env.example.local
+.venv/
+venv/
+env/
+tox.ini
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Backup Files
+# ─────────────────────────────────────────────────────────────────────────────
+*.bak
+*.backup
+*.old
+*~
+*.swp
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Project-Specific (EventSphere)
+# ─────────────────────────────────────────────────────────────────────────────
+# Don't commit local overrides or compiled assets
+*.local.yml
+*.production.yml
+client/node_modules/
+server/node_modules/
+.credentials
+.secrets
+firewall-backup.ps1
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Keep These Files (DO NOT Ignore)
+# ─────────────────────────────────────────────────────────────────────────────
+# Uncomment if you want to explicitly include files that would otherwise be ignored:
+# !package-lock.json
+# !.env.example
+# !client/node_modules/.gitkeep
