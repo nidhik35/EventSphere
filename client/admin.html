@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>EventSphere - Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-content">
+        <h1>EventSphere Admin</h1>
+        <nav>
+          <a href="index.html">Events</a>
+          <a href="admin.html">Admin</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>Create Event</h2>
+        <form id="create-event-form" class="form-grid">
+          <label>
+            Title
+            <input type="text" id="title" required />
+          </label>
+          <label>
+            Description
+            <textarea id="description" rows="3" required></textarea>
+          </label>
+          <label>
+            Date
+            <input type="date" id="date" required />
+          </label>
+          <label>
+            Location
+            <input type="text" id="location" required />
+          </label>
+          <button type="submit">Create Event</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Manage Events</h2>
+        <div id="admin-events-list" class="cards"></div>
+        <p id="admin-events-empty" class="muted hidden">No events found.</p>
+      </section>
+
+      <section class="card">
+        <h2>Registrations</h2>
+        <p id="registrations-info" class="muted">Select an event to view registrations.</p>
+        <ul id="registrations-list" class="list"></ul>
+      </section>
+    </main>
+
+    <script src="js/admin.js"></script>
+  </body>
+</html>
+

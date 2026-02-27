@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>EventSphere - Event Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-content">
+        <h1>Event Details</h1>
+        <nav>
+          <a href="index.html">Events</a>
+          <a href="admin.html">Admin</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="event-details" class="card">
+        <h2 id="event-title"></h2>
+        <p id="event-description"></p>
+        <p>
+          <strong>Date:</strong>
+          <span id="event-date"></span>
+        </p>
+        <p>
+          <strong>Location:</strong>
+          <span id="event-location"></span>
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Register for this event</h2>
+        <form id="register-form" class="form-grid">
+          <label>
+            Name
+            <input type="text" id="name" required />
+          </label>
+          <label>
+            Email
+            <input type="email" id="email" required />
+          </label>
+          <button type="submit">Register</button>
+        </form>
+        <p id="register-message" class="muted"></p>
+      </section>
+    </main>
+
+    <script src="js/event.js"></script>
+  </body>
+</html>
+
