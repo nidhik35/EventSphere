@@ -32,16 +32,16 @@ async function fetchEvents() {
       const actions = document.createElement('div');
 
       const editBtn = document.createElement('button');
-      editBtn.textContent = 'Edit';
+      editBtn.innerHTML = '<i class="fas fa-edit"></i> Edit';
       editBtn.addEventListener('click', () => editEvent(event));
 
       const deleteBtn = document.createElement('button');
-      deleteBtn.textContent = 'Delete';
+      deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i> Delete';
       deleteBtn.style.marginLeft = '0.5rem';
       deleteBtn.addEventListener('click', () => deleteEvent(event._id));
 
       const registrationsBtn = document.createElement('button');
-      registrationsBtn.textContent = 'Registrations';
+      registrationsBtn.innerHTML = '<i class="fas fa-users"></i> Registrations';
       registrationsBtn.style.marginLeft = '0.5rem';
       registrationsBtn.addEventListener('click', () => loadRegistrations(event));
 

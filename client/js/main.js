@@ -31,12 +31,12 @@ async function loadEvents() {
 
       const meta = document.createElement('p');
       const date = event.date ? new Date(event.date).toLocaleDateString() : '';
-      meta.innerHTML = `<span class="tag">${date}</span> &nbsp; ${event.location || ''}`;
+      meta.innerHTML = `<span class="tag"><i class="fas fa-calendar-day"></i>${date}</span> &nbsp; ${event.location ? `<i class="fas fa-map-marker-alt"></i>${event.location}` : ''}`;
 
       const link = document.createElement('a');
       link.href = `event.html?id=${event._id}`;
       link.className = 'btn-link';
-      link.textContent = 'View details';
+      link.innerHTML = '<i class="fas fa-info-circle"></i> View details';
 
       card.appendChild(title);
       card.appendChild(desc);

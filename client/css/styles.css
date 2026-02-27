@@ -109,6 +109,8 @@ textarea {
   padding: 0.5rem 0.6rem;
   border-radius: 0.375rem;
   border: 1px solid #d1d5db;
+  width: 100%;               /* make inputs span the available space */
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 input:focus,
@@ -155,5 +157,22 @@ button:hover {
   background: #eef2ff;
   color: #4338ca;
   font-size: 0.75rem;
+}
+
+/* icon spacing */
+.fa,
+.fas,
+.far,
+.fal,
+.fab {
+  margin-right: 0.25rem;
+  vertical-align: middle;
+}
+
+/* make icons inside buttons a bit smaller */
+button .fa,
+.btn-link .fa {
+  font-size: 0.85em;
+  margin-right: 0.3rem;
 }
 
