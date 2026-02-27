@@ -52,6 +52,36 @@ async function seed() {
         date: new Date('2026-03-14'),
         location: 'Central Expo Ground',
       },
+      {
+        title: 'Blockchain & Smart Contracts Workshop',
+        description: 'Introduction to blockchain fundamentals and hands-on smart contracts development.',
+        date: new Date('2026-03-15'),
+        location: 'Distributed Systems Lab',
+      },
+      {
+        title: 'UI/UX Design Sprint',
+        description: 'Collaborative 6-hour sprint to prototype user interfaces for campus apps.',
+        date: new Date('2026-03-16'),
+        location: 'Design Studio 1',
+      },
+      {
+        title: 'Cybersecurity CTF (Capture The Flag)',
+        description: 'Team-based security challenge with beginner to advanced puzzles.',
+        date: new Date('2026-03-17'),
+        location: 'Cyber Lab',
+      },
+      {
+        title: 'Startup Pitch Night',
+        description: 'Student startups pitch to a panel of judges and mentors.',
+        date: new Date('2026-03-18'),
+        location: 'Auditorium B',
+      },
+      {
+        title: 'Sustainability in Tech Panel',
+        description: 'Discussion on sustainable engineering practices and green tech initiatives.',
+        date: new Date('2026-03-19'),
+        location: 'Conference Room 3',
+      },
     ];
 
     const events = await Event.insertMany(eventsData);
@@ -72,6 +102,21 @@ async function seed() {
         eventId: events[2]._id,
         name: 'Mei Chen',
         email: 'mei@example.com',
+      },
+      {
+        eventId: events[5]._id,
+        name: 'Carlos Mendes',
+        email: 'carlos@example.com',
+      },
+      {
+        eventId: events[6]._id,
+        name: 'Priya Singh',
+        email: 'priya@example.com',
+      },
+      {
+        eventId: events[8]._id,
+        name: 'Liam O\'Connor',
+        email: 'liam@example.com',
       },
     ];
 
