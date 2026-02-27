@@ -66,6 +66,7 @@ async function createEvent(e) {
   e.preventDefault();
 
   const titleEl = document.getElementById('title');
+  const categoryEl = document.getElementById('category');
   const descriptionEl = document.getElementById('description');
   const dateEl = document.getElementById('date');
   const locationEl = document.getElementById('location');
@@ -78,6 +79,7 @@ async function createEvent(e) {
       },
       body: JSON.stringify({
         title: titleEl.value,
+        category: categoryEl.value,
         description: descriptionEl.value,
         date: dateEl.value,
         location: locationEl.value,
@@ -89,6 +91,7 @@ async function createEvent(e) {
     }
 
     titleEl.value = '';
+    categoryEl.value = 'Academic Project';
     descriptionEl.value = '';
     dateEl.value = '';
     locationEl.value = '';
@@ -103,6 +106,8 @@ async function createEvent(e) {
 async function editEvent(event) {
   const newTitle = window.prompt('Title', event.title);
   if (newTitle === null) return;
+  const newCategory = window.prompt('Category (Academic Project / Workshop / Hackathon / Competition / Fest / Talk / General)', event.category || 'General');
+  if (newCategory === null) return;
   const newDescription = window.prompt('Description', event.description);
   if (newDescription === null) return;
   const currentDate = event.date ? new Date(event.date).toISOString().substring(0, 10) : '';
@@ -119,6 +124,7 @@ async function editEvent(event) {
       },
       body: JSON.stringify({
         title: newTitle,
+        category: newCategory,
         description: newDescription,
         date: newDate,
         location: newLocation,

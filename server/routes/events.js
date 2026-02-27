@@ -31,12 +31,13 @@ router.get('/:id', async (req, res) => {
 // POST /events - create event
 router.post('/', async (req, res) => {
   try {
-    const { title, description, date, location } = req.body;
+    const { title, description, date, location, category } = req.body;
     const event = new Event({
       title,
       description,
       date,
       location,
+      category,
     });
     const saved = await event.save();
     res.status(201).json(saved);
@@ -49,10 +50,10 @@ router.post('/', async (req, res) => {
 // PUT /events/:id - update event
 router.put('/:id', async (req, res) => {
   try {
-    const { title, description, date, location } = req.body;
+    const { title, description, date, location, category } = req.body;
     const updated = await Event.findByIdAndUpdate(
       req.params.id,
-      { title, description, date, location },
+      { title, description, date, location, category },
       { new: true, runValidators: true }
     );
     if (!updated) {

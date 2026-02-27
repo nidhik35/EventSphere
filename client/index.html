@@ -11,17 +11,62 @@
   <body>
     <header class="header">
       <div class="container header-content">
-        <h1>EventSphere</h1>
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div class="brand-title">
+            <strong>EventSphere</strong>
+            <span>Campus events · Tech fest · Workshops</span>
+          </div>
+        </div>
         <nav>
-          <a href="index.html"><i class="fas fa-calendar-alt"></i> Events</a>
-          <a href="admin.html"><i class="fas fa-user-cog"></i> Admin</a>
+          <a class="nav-link" href="index.html"><i class="fas fa-calendar-alt"></i> Events</a>
+          <a class="nav-link" href="admin.html"><i class="fas fa-user-cog"></i> Admin</a>
         </nav>
       </div>
     </header>
 
     <main class="container">
-      <section>
-        <h2>Upcoming Events</h2>
+      <section class="hero">
+        <div class="hero-inner">
+          <div>
+            <h2>Discover what’s happening on campus.</h2>
+            <p>
+              Browse events, explore categories, and register in seconds. Built for college fests, showcases,
+              hackathons, workshops, and talks.
+            </p>
+          </div>
+          <div class="hero-card">
+            <div class="hero-stat">
+              <strong id="events-count">—</strong>
+              <span>events available</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">
+          <h3>Explore by category</h3>
+          <div class="search">
+            <i class="fas fa-magnifying-glass"></i>
+            <input id="events-search" type="text" placeholder="Search events…" autocomplete="off" />
+          </div>
+        </div>
+        <div class="tabs" id="category-tabs">
+          <a class="tab-button active" href="index.html"><i class="fas fa-border-all"></i> All</a>
+          <a class="tab-button" href="category.html?category=Academic%20Project"><i class="fas fa-graduation-cap"></i> Academic</a>
+          <a class="tab-button" href="category.html?category=Workshop"><i class="fas fa-screwdriver-wrench"></i> Workshops</a>
+          <a class="tab-button" href="category.html?category=Hackathon"><i class="fas fa-code"></i> Hackathons</a>
+          <a class="tab-button" href="category.html?category=Competition"><i class="fas fa-trophy"></i> Competitions</a>
+          <a class="tab-button" href="category.html?category=Fest"><i class="fas fa-music"></i> Fest</a>
+          <a class="tab-button" href="category.html?category=Talk"><i class="fas fa-microphone"></i> Talks</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">
+          <h3>Upcoming lineup</h3>
+        </div>
         <div id="events-list" class="cards"></div>
         <p id="events-empty" class="muted hidden">No events available yet.</p>
       </section>

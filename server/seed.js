@@ -22,65 +22,116 @@ async function seed() {
     await Event.deleteMany({});
 
     const eventsData = [
+      // Academic Project (2)
       {
-        title: 'Robotics Challenge 2026',
-        description: 'Build and program autonomous robots to complete obstacle courses and tasks.',
-        date: new Date('2026-03-10'),
-        location: 'Mechanical Engineering Block Auditorium',
+        title: 'Tech Expo: Future of Engineering',
+        description: 'Exhibition of student projects in robotics, AI, IoT, and sustainable tech.',
+        date: new Date('2026-03-14'),
+        location: 'Central Expo Ground',
+        category: 'Academic Project',
       },
       {
-        title: 'AI & Machine Learning Hackathon',
-        description: '24-hour hackathon focused on real-world AI and ML problem statements.',
-        date: new Date('2026-03-11'),
-        location: 'Computer Science Innovation Lab',
+        title: 'Final Year Project Showcase (ECE & CSE)',
+        description: 'Capstone demos: embedded systems, web apps, ML prototypes, and IoT builds.',
+        date: new Date('2026-03-20'),
+        location: 'Innovation Atrium',
+        category: 'Academic Project',
       },
+
+      // Workshop (2)
       {
         title: 'IoT for Smart Campus Workshop',
         description: 'Hands-on workshop building IoT prototypes for smarter campus infrastructure.',
         date: new Date('2026-03-12'),
         location: 'Electronics Lab 2',
+        category: 'Workshop',
+      },
+      {
+        title: 'Advanced React Workshop',
+        description: 'Hands-on workshop on hooks, state management, and performance tuning.',
+        date: new Date('2026-03-27'),
+        location: 'Software Lab 5',
+        category: 'Workshop',
+      },
+
+      // Hackathon (2)
+      {
+        title: 'AI & Machine Learning Hackathon',
+        description: '24-hour hackathon focused on real-world AI and ML problem statements.',
+        date: new Date('2026-03-11'),
+        location: 'Computer Science Innovation Lab',
+        category: 'Hackathon',
+      },
+      {
+        title: 'Overnight Hack Sprint',
+        description: 'Short 12-hour hackathon focusing on campus problem statements.',
+        date: new Date('2026-03-29'),
+        location: 'Innovation Hub',
+        category: 'Hackathon',
+      },
+
+      // Competition (2)
+      {
+        title: 'Robotics Challenge 2026',
+        description: 'Build and program autonomous robots to complete obstacle courses and tasks.',
+        date: new Date('2026-03-10'),
+        location: 'Mechanical Engineering Block Auditorium',
+        category: 'Competition',
       },
       {
         title: 'Coding Marathon - Algorithms & Data Structures',
         description: 'Intense competitive programming contest for algorithm enthusiasts.',
         date: new Date('2026-03-13'),
         location: 'Main Seminar Hall',
+        category: 'Competition',
+      },
+
+      // Fest (2)
+      {
+        title: 'College Tech Fest Inauguration',
+        description: 'Opening ceremony with chief guest talk and cultural performance.',
+        date: new Date('2026-03-01'),
+        location: 'Main Auditorium',
+        category: 'Fest',
       },
       {
-        title: 'Tech Expo: Future of Engineering',
-        description: 'Exhibition of student projects in robotics, AI, IoT, and sustainable tech.',
-        date: new Date('2026-03-14'),
-        location: 'Central Expo Ground',
+        title: 'Open Mic + Cultural Night',
+        description: 'Music, poetry, and performances to wrap up the fest with high energy.',
+        date: new Date('2026-03-22'),
+        location: 'Open Air Theatre',
+        category: 'Fest',
       },
-      {
-        title: 'Blockchain & Smart Contracts Workshop',
-        description: 'Introduction to blockchain fundamentals and hands-on smart contracts development.',
-        date: new Date('2026-03-15'),
-        location: 'Distributed Systems Lab',
-      },
-      {
-        title: 'UI/UX Design Sprint',
-        description: 'Collaborative 6-hour sprint to prototype user interfaces for campus apps.',
-        date: new Date('2026-03-16'),
-        location: 'Design Studio 1',
-      },
-      {
-        title: 'Cybersecurity CTF (Capture The Flag)',
-        description: 'Team-based security challenge with beginner to advanced puzzles.',
-        date: new Date('2026-03-17'),
-        location: 'Cyber Lab',
-      },
-      {
-        title: 'Startup Pitch Night',
-        description: 'Student startups pitch to a panel of judges and mentors.',
-        date: new Date('2026-03-18'),
-        location: 'Auditorium B',
-      },
+
+      // Talk (2)
       {
         title: 'Sustainability in Tech Panel',
         description: 'Discussion on sustainable engineering practices and green tech initiatives.',
         date: new Date('2026-03-19'),
         location: 'Conference Room 3',
+        category: 'Talk',
+      },
+      {
+        title: 'Alumni Tech Talk Series',
+        description: 'Alumni share industry experience across software, core, and research.',
+        date: new Date('2026-04-02'),
+        location: 'Seminar Hall C',
+        category: 'Talk',
+      },
+
+      // General (2)
+      {
+        title: 'Hostel Coding Jam',
+        description: 'Informal late-night coding meetup in hostel common room.',
+        date: new Date('2026-04-04'),
+        location: 'Hostel Common Room',
+        category: 'General',
+      },
+      {
+        title: 'Dept Open House & Lab Tour',
+        description: 'Guided tours of department labs for juniors and school visitors.',
+        date: new Date('2026-04-05'),
+        location: 'Department Blocks',
+        category: 'General',
       },
     ];
 

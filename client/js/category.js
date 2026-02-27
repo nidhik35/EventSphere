@@ -1,24 +1,49 @@
-let allEvents = [];
+function getCategoryFromQuery() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get('category') || 'all';
+}
 
-async function loadEvents() {
-  const listEl = document.getElementById('events-list');
-  const emptyEl = document.getElementById('events-empty');
-  const countEl = document.getElementById('events-count');
+let categoryEvents = [];
 
-  listEl.innerHTML = '';
+async function loadCategoryEvents() {
+  const category = getCategoryFromQuery();
+  const headingEl = document.getElementById('category-heading');
+  const listEl = document.getElementById('category-events-list');
+  const emptyEl = document.getElementById('category-events-empty');
+  const tabs = document.querySelectorAll('.tab-button');
+
+  // Update heading
+  if (category === 'all') {
+    headingEl.textContent = 'All Events';
+  } else {
+    headingEl.textContent = `${category} Events`;
+  }
+
+  // Highlight active tab
+  tabs.forEach((tab) => {
+    const href = tab.getAttribute('href') || '';
+    if (category === 'all' && href.endsWith('index.html')) {
+      tab.classList.add('active');
+    } else if (href.includes(`category=${encodeURIComponent(category)}`)) {
+      tab.classList.add('active');
+    } else {
+      tab.classList.remove('active');
+    }
+  });
 
   try {
     const res = await fetch('/events');
     if (!res.ok) {
       throw new Error('Failed to load events');
     }
-    allEvents = await res.json();
+    const events = await res.json();
 
-    if (countEl) {
-      countEl.textContent = allEvents.length.toString();
-    }
+    categoryEvents =
+      category === 'all'
+        ? events
+        : events.filter((event) => (event.category || 'General') === category);
 
-    renderEvents('');
+    renderCategoryEvents('');
   } catch (err) {
     console.error(err);
     emptyEl.textContent = 'Unable to load events. Please try again later.';
@@ -26,38 +51,38 @@ async function loadEvents() {
   }
 }
 
-function renderEvents(query) {
-  const listEl = document.getElementById('events-list');
-  const emptyEl = document.getElementById('events-empty');
+function renderCategoryEvents(query) {
+  const listEl = document.getElementById('category-events-list');
+  const emptyEl = document.getElementById('category-events-empty');
 
   listEl.innerHTML = '';
 
-  if (!allEvents || allEvents.length === 0) {
+  if (!categoryEvents || categoryEvents.length === 0) {
     emptyEl.classList.remove('hidden');
     return;
   }
 
   const normalized = (query || '').trim().toLowerCase();
   const filtered = normalized
-    ? allEvents.filter((event) => {
+    ? categoryEvents.filter((event) => {
         const haystack = `${event.title} ${event.description} ${event.location} ${event.category || ''}`.toLowerCase();
         return haystack.includes(normalized);
       })
-    : allEvents;
+    : categoryEvents;
 
   if (!filtered.length) {
-    emptyEl.textContent = 'No events match your search.';
+    emptyEl.textContent = 'No events match your search in this category.';
     emptyEl.classList.remove('hidden');
     return;
   }
 
   emptyEl.classList.add('hidden');
   filtered.forEach((event) => {
-    listEl.appendChild(createEventCard(event));
+    listEl.appendChild(createCategoryEventCard(event));
   });
 }
 
-function createEventCard(event) {
+function createCategoryEventCard(event) {
   const card = document.createElement('article');
   card.className = 'card';
 
@@ -89,11 +114,12 @@ function createEventCard(event) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  loadEvents();
-  const searchInput = document.getElementById('events-search');
+  loadCategoryEvents();
+  const searchInput = document.getElementById('category-search');
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
-      renderEvents(e.target.value);
+      renderCategoryEvents(e.target.value);
     });
   }
 });
+
